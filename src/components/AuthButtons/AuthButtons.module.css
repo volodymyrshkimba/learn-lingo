@@ -1,0 +1,20 @@
+.authButtonsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.loginBtn {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.registrationBtn {
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #121417;
+  padding: 14px 39px;
+  border-radius: 12px;
+}
