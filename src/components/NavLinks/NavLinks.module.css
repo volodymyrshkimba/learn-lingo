@@ -1,0 +1,11 @@
+.navLinksList {
+  display: flex;
+  gap: 28px;
+}
+
+.link {
+  display: block;
+  padding-top: 34px;
+  padding-bottom: 34px;
+  line-height: 1.25;
+}

@@ -1,0 +1,27 @@
+.authCard {
+  max-width: 566px;
+  border-radius: 30px;
+  padding: 64px;
+  position: relative;
+
+  /* background-color: gray; */
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.authTitle {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.authDescr {
+  line-height: 1.37;
+  color: rgba(18, 20, 23, 0.8);
+}

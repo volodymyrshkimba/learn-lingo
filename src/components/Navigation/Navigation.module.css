@@ -1,0 +1,7 @@
+.navWrapper {
+  max-width: 661px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
