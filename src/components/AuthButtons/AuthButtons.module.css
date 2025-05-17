@@ -4,10 +4,16 @@
   gap: 16px;
 }
 
+.btnWrapper {
+  position: relative;
+}
+
 .loginBtn {
   font-weight: 700;
   display: flex;
   align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
   gap: 8px;
 }
 

@@ -1,8 +1,10 @@
 .authCard {
-  max-width: 566px;
+  width: 566px;
   border-radius: 30px;
   padding: 64px;
-  position: relative;
+  position: absolute;
+  top: 110%;
+  right: 0;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
@@ -21,6 +23,7 @@
 }
 
 .authDescr {
+  width: 100%;
   line-height: 1.37;
   color: rgba(18, 20, 23, 0.8);
   margin-bottom: 40px;
@@ -32,11 +35,12 @@
   width: 100%;
 }
 
-.form .input:not(:last-of-type) {
+.form > .input {
   margin-bottom: 18px;
 }
 
 .input {
+  width: 100%;
   height: 54px;
   padding-left: 18px;
   border: 1px solid rgba(18, 20, 23, 0.1);
@@ -47,6 +51,10 @@
   color: #121417;
 }
 
+.pwdWrapper {
+  position: relative;
+}
+
 .btn {
   margin-top: 40px;
   height: 60px;
@@ -54,4 +62,10 @@
   background-color: #f4c550;
   font-weight: 700;
   font-size: 18px;
+}
+
+.showPwdBtn {
+  position: absolute;
+  top: 17px;
+  right: 18px;
 }
