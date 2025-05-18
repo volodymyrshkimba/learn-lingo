@@ -1,0 +1,30 @@
+.userInfoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #f4c550;
+}
+
+.logoutBtn {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  gap: 8px;
+}

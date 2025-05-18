@@ -1,0 +1,62 @@
+.homePageContainer {
+  max-width: 1312px;
+  padding-top: 20px;
+  padding-bottom: 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.textImageWrapper {
+  display: flex;
+  gap: 86px;
+  margin-bottom: 24px;
+}
+
+.textSide {
+  max-width: 720px;
+  background-color: #f8f8f8;
+  border-radius: 30px;
+  padding: 98px 108px 98px 64px;
+  z-index: -2;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.accent {
+  position: relative;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.accent::after {
+  content: "";
+  width: 195px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #fbe9ba;
+  position: absolute;
+  top: 10px;
+  left: -5px;
+  z-index: -1;
+}
+
+.description {
+  max-width: 471px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.37;
+  letter-spacing: -0.02em;
+  margin-bottom: 64px;
+}
+
+.imageSide {
+  flex-grow: 1;
+  background-color: #fbe9ba;
+  border-radius: 30px;
+}

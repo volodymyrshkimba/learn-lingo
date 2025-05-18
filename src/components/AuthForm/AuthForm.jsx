@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../firebase";
+import { useAuth } from "../../context/AuthContext";
 
 import css from "./AuthForm.module.css";
 
 const AuthForm = ({ login, handleAuthFormClose }) => {
+  const auth = useAuth();
   const {
     register,
     handleSubmit,
@@ -16,22 +16,11 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
   const [passVisible, setPassVisible] = useState(false);
 
   const onSubmit = async ({ name, email, password }) => {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      if (name) {
-        await updateProfile(userCredential.user, {
-          displayName: name,
-        });
-      }
-      console.log("User created:", userCredential.user);
-    } catch (error) {
-      console.error("Registration error:", error.message);
+    if (login) {
+      await auth.login(email, password);
+      return;
     }
+    await auth.register(name, email, password);
   };
 
   return (

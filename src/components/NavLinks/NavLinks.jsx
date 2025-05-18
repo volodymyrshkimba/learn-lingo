@@ -6,6 +6,11 @@ const NavLinks = () => {
   return (
     <ul className={css.navLinksList}>
       <li>
+        <NavLink className={css.link} to={"/"}>
+          Home
+        </NavLink>
+      </li>
+      <li>
         <NavLink className={css.link} to={"/teachers"}>
           Teachers
         </NavLink>

@@ -10,24 +10,21 @@ const FavouritesPage = lazy(() =>
 );
 
 import Header from "./components/Header/Header.jsx";
-import PageContainer from "./components/PageContainer/PageContainer.jsx";
-
-// import css from "./App.module.css";
 
 function App() {
   return (
-    <main>
-      <Suspense fallback={"LOADING..."}>
-        <Header />
-        <PageContainer>
+    <>
+      <Header />
+      <main>
+        <Suspense fallback={"LOADING..."}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/teachers" element={<TeachersPage />} />
             <Route path="/favourites" element={<FavouritesPage />} />
           </Routes>
-        </PageContainer>
-      </Suspense>
-    </main>
+        </Suspense>
+      </main>
+    </>
   );
 }
 
