@@ -1,6 +1,5 @@
 .homePageContainer {
   max-width: 1312px;
-  padding-top: 20px;
   padding-bottom: 32px;
   margin-left: auto;
   margin-right: auto;
@@ -8,7 +7,7 @@
 
 .textImageWrapper {
   display: flex;
-  gap: 86px;
+  gap: 24px;
   margin-bottom: 24px;
 }
 
@@ -17,7 +16,6 @@
   background-color: #f8f8f8;
   border-radius: 30px;
   padding: 98px 108px 98px 64px;
-  z-index: -2;
 }
 
 .title {
@@ -32,6 +30,7 @@
   position: relative;
   font-style: italic;
   font-weight: 400;
+  z-index: 1;
 }
 
 .accent::after {
@@ -56,7 +55,38 @@
 }
 
 .imageSide {
-  flex-grow: 1;
-  background-color: #fbe9ba;
+  background: url("../../../public/orange-mac.png") no-repeat center bottom,
+    url("../../../public/head.png") no-repeat center bottom 111px, #fbe9ba;
   border-radius: 30px;
+  flex-grow: 1;
+}
+
+.statsList {
+  display: flex;
+  padding: 40px 122px;
+  justify-content: space-between;
+  /* dashed border */
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%23F4C550FF' stroke-width='4' stroke-dasharray='10%2c 20' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 30px;
+}
+
+.statsItem {
+  display: flex;
+  justify-content: baseline;
+  gap: 16px;
+}
+
+.statsValue {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+}
+
+.statsDesc {
+  max-width: 93px;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: rgba(18, 20, 23, 0.7);
 }

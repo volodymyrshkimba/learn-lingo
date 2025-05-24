@@ -1,0 +1,12 @@
+.teachersPage {
+  padding-top: 8px;
+  padding-bottom: 96px;
+  height: 100vh - 88px;
+  background-color: #f8f8f8;
+}
+
+.teachersPageContainer {
+  max-width: 1184px;
+  margin-left: auto;
+  margin-right: auto;
+}
