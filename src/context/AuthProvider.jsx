@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 
 import { AuthContext } from "./AuthContext";
-import { auth } from "../firebase";
+import { auth } from "../firebase/firebase.js";
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
