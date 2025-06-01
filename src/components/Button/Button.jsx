@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import css from "./Button.module.css";
 
-function Button({ as = "button", to = "/", children, size = 48 }) {
+function Button({ as = "button", to = "/", children, size = 48, onClick }) {
   const sizeClass = {
     48: css.btn48,
     88: css.btn88,
@@ -17,7 +17,11 @@ function Button({ as = "button", to = "/", children, size = 48 }) {
     );
   }
 
-  return <button className={classes}>{children}</button>;
+  return (
+    <button className={classes} onClick={onClick}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;

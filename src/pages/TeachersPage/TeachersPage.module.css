@@ -1,7 +1,6 @@
 .teachersPage {
   padding-top: 8px;
   padding-bottom: 96px;
-  height: 100vh - 88px;
   background-color: #f8f8f8;
 }
 
@@ -11,115 +10,9 @@
   margin-right: auto;
 }
 
-.teacherCard {
-  padding: 24px;
-  display: flex;
-  gap: 48px;
-}
-
-.teacherHeader {
-  display: flex;
-  gap: 149px;
-  align-items: baseline;
-  margin-bottom: 32px;
-}
-
-.teacherInfo {
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-.nameDescr {
-  color: #8a8a89;
-  margin-bottom: 8px;
-}
-
-.name {
-  font-size: 24px;
-  line-height: 1;
-  color: #121417;
-}
-
-.teacherStatsBtnWrapper {
-  display: flex;
-  gap: 64px;
-}
-
-.teacherStats {
-  display: flex;
-  gap: 32px;
-}
-
-.statItem {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.priceAccent {
-  color: #38cd3e;
-}
-
-.teacherStats li {
-  position: relative;
-}
-
-.teacherStats li:not(:last-child)::after {
-  content: "";
-  width: 1px;
-  height: 16px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: -16px;
-  background-color: rgba(18, 20, 23, 0.2);
-}
-
-.mainDercriptionList {
-  margin-bottom: 16px;
-}
-
-.mainDercriptionItem:not(:last-child) {
-  margin-bottom: 8px;
-}
-
-.mainDescrKeyWord {
-  color: #8a8a89;
-}
-
-.languages {
-  text-decoration: underline;
-}
-
-.summary {
-  font-weight: 400;
-  margin-bottom: 32px;
-}
-
-.readMoreBtn {
-  font-weight: inherit;
-  line-height: inherit;
-  text-decoration: underline;
-  margin-bottom: 32px;
-}
-
-.languageLevelsList {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.languageLevelsItem {
-  padding: 8px 12px;
-  font-size: 14px;
-  line-height: 1.14;
-  border-radius: 35px;
-}
-
-.languageLevelsItem:first-child {
-  background-color: #f4c550;
-}
-
-.languageLevelsItem:not(:first-child) {
-  border: 1px solid rgba(18, 20, 23, 0.2);
+.teachersList + button {
+  margin-top: 64px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

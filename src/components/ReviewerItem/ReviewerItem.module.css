@@ -1,0 +1,36 @@
+.reviewsItem:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.reviewerInfo {
+  display: flex;
+  column-gap: 12px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  border-radius: 100px;
+}
+
+.noAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+  background-color: #f4c550;
+}
+
+.reviewerName {
+  color: #8a8a89;
+  margin-bottom: 2px;
+}
+
+.reviewerRating {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.29;
+}
