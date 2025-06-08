@@ -1,4 +1,5 @@
 import { useState } from "react";
+import clsx from "clsx";
 
 import Button from "../Button/Button";
 import ReviewerItem from "../ReviewerItem/ReviewerItem";
@@ -18,8 +19,11 @@ const TeachersItem = ({
   price_per_hour,
   rating,
   reviews,
+  id,
+  toggleFavorite,
+  isFavorite,
 }) => {
-  const [readMore, setReadMore] = useState();
+  const [readMore, setReadMore] = useState(false);
 
   return (
     <li className={css.teacherCard}>
@@ -63,8 +67,31 @@ const TeachersItem = ({
                 <span className={css.priceAccent}>&nbsp;{price_per_hour}$</span>
               </li>
             </ul>
-            <button type="button">
-              <svg width="26" height="22">
+            <button
+              onClick={() =>
+                toggleFavorite({
+                  avatar_url,
+                  conditions,
+                  experience,
+                  languages,
+                  lesson_info,
+                  lessons_done,
+                  levels,
+                  name,
+                  surname,
+                  price_per_hour,
+                  rating,
+                  reviews,
+                  id,
+                })
+              }
+              type="button"
+            >
+              <svg
+                className={clsx(css.heart, isFavorite(id) && css.active)}
+                width="26"
+                height="26"
+              >
                 <use href="../../../public/icons.svg#heart"></use>
               </svg>
             </button>

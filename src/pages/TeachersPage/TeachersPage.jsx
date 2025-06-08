@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { endAt, onValue, orderByKey, query, startAt } from "firebase/database";
+
 import { teachersRef } from "../../firebase/firebase";
+import { objToArrAndClearEmptyArrValues } from "../../utils/objToArrAndClearEmptyArrValues";
+import { useFavorites } from "../../hooks/useFavorites";
 
 import TeachersItem from "../../components/TeachersItem/TeachersItem";
 import Button from "../../components/Button/Button";
@@ -9,9 +12,10 @@ import css from "./TeachersPage.module.css";
 
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState([]);
+  const { toggleFavorite, isFavorite } = useFavorites();
+
   const [page, setPage] = useState(0);
   const teachersTotal = 30;
-  console.log(teachers);
 
   useEffect(() => {
     const teachersQuery = query(
@@ -24,11 +28,7 @@ const TeachersPage = () => {
     const unsubscribe = onValue(teachersQuery, (snapshot) => {
       const data = snapshot.val();
 
-      const dataToArray = data
-        ? Array.isArray(data)
-          ? data.filter(() => true)
-          : Object.entries(data).map(([_, value]) => ({ ...value }))
-        : [];
+      const dataToArray = objToArrAndClearEmptyArrValues(data);
 
       setTeachers((prev) => [...prev, ...dataToArray]);
     });
@@ -42,7 +42,12 @@ const TeachersPage = () => {
         <ul className={css.teachersList}>
           {teachers.length !== 0 &&
             teachers.map((teacher) => (
-              <TeachersItem key={teacher.avatar_url} {...teacher} />
+              <TeachersItem
+                key={teacher.id}
+                {...teacher}
+                toggleFavorite={toggleFavorite}
+                isFavorite={isFavorite}
+              />
             ))}
         </ul>
         {teachers.length < teachersTotal && (

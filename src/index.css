@@ -48,4 +48,5 @@ button {
 
 svg {
   display: block;
+  fill: none;
 }
