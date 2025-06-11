@@ -7,12 +7,20 @@ import { useFavorites } from "../../hooks/useFavorites";
 
 import TeachersItem from "../../components/TeachersItem/TeachersItem";
 import Button from "../../components/Button/Button";
+import CustomSelect from "../../components/CustomSelect/CustomSelect";
 
 import css from "./TeachersPage.module.css";
+
+const languages = ["French", "English", "German", "Ukrainian", "Polish"];
 
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState([]);
   const { toggleFavorite, isFavorite } = useFavorites();
+  const [value, setValue] = useState({
+    lang: "",
+    level: "",
+    price: "",
+  });
 
   const [page, setPage] = useState(0);
   const teachersTotal = 30;
@@ -39,6 +47,7 @@ const TeachersPage = () => {
   return (
     <div className={css.teachersPage}>
       <div className={css.teachersPageContainer}>
+        <CustomSelect options={languages} placeholder={"Languages"} />
         <ul className={css.teachersList}>
           {teachers.length !== 0 &&
             teachers.map((teacher) => (
