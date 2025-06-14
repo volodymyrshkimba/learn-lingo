@@ -1,10 +1,13 @@
 import { useState } from "react";
 import clsx from "clsx";
 
+import { useAuth } from "../../context/AuthContext";
+
 import Button from "../Button/Button";
 import ReviewerItem from "../ReviewerItem/ReviewerItem";
 
 import css from "./TeachersItem.module.css";
+import { toast } from "react-toastify";
 
 const TeachersItem = ({
   avatar_url,
@@ -24,6 +27,7 @@ const TeachersItem = ({
   isFavorite,
 }) => {
   const [readMore, setReadMore] = useState(false);
+  const { isLoggedIn } = useAuth();
 
   return (
     <li className={css.teacherCard}>
@@ -68,7 +72,14 @@ const TeachersItem = ({
               </li>
             </ul>
             <button
-              onClick={() =>
+              onClick={() => {
+                if (!isLoggedIn) {
+                  return toast("Please sign in to add to favorites!", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    theme: "light",
+                  });
+                }
                 toggleFavorite({
                   avatar_url,
                   conditions,
@@ -83,8 +94,8 @@ const TeachersItem = ({
                   rating,
                   reviews,
                   id,
-                })
-              }
+                });
+              }}
               type="button"
             >
               <svg

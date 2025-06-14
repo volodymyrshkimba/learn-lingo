@@ -9,3 +9,10 @@
   padding-bottom: 34px;
   line-height: 1.25;
 }
+
+.disabled {
+  color: #747070;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

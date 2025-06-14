@@ -1,13 +1,22 @@
 import { Link } from "react-router-dom";
+
+import clsx from "clsx";
+
 import css from "./Button.module.css";
 
-function Button({ as = "button", to = "/", children, size = 48, onClick }) {
-  const sizeClass = {
-    48: css.btn48,
-    88: css.btn88,
-  }[size];
-
-  const classes = `${css.btn} ${sizeClass}`.trim();
+function Button({
+  as = "button",
+  to = "/",
+  children,
+  size = 48,
+  onClick,
+  disabled,
+}) {
+  const classes = clsx(
+    size === 48 && css.btn48,
+    size === 88 && css.btn88,
+    css.btn
+  );
 
   if (as === "link") {
     return (
@@ -18,7 +27,7 @@ function Button({ as = "button", to = "/", children, size = 48, onClick }) {
   }
 
   return (
-    <button className={classes} onClick={onClick}>
+    <button disabled={disabled} className={classes} onClick={onClick}>
       {children}
     </button>
   );

@@ -2,6 +2,7 @@
   padding-top: 8px;
   padding-bottom: 96px;
   background-color: #f8f8f8;
+  min-height: calc(100vh - 88px);
 }
 
 .teachersPageContainer {
@@ -15,4 +16,10 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.filtersWrapper {
+  display: flex;
+  column-gap: 20px;
+  margin-bottom: 32px;
 }

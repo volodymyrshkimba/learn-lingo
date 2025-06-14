@@ -66,15 +66,13 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
             onClick={() => setPassVisible(!passVisible)}
             type="button"
           >
-            {passVisible ? (
-              <svg width="20" height="20">
-                <use href="../../../public/icons.svg#eye"></use>
-              </svg>
-            ) : (
-              <svg width="20" height="20">
-                <use href="../../../public/icons.svg#eye-off"></use>
-              </svg>
-            )}
+            <svg width="20" height="20">
+              <use
+                href={`../../../public/icons.svg#${
+                  passVisible ? "eye" : "eye-off"
+                }`}
+              ></use>
+            </svg>
           </button>
         </div>
 

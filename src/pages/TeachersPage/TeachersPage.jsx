@@ -7,23 +7,21 @@ import { useFavorites } from "../../hooks/useFavorites";
 
 import TeachersItem from "../../components/TeachersItem/TeachersItem";
 import Button from "../../components/Button/Button";
-import CustomSelect from "../../components/CustomSelect/CustomSelect";
+import Filters from "../../components/Filters/Filters";
 
 import css from "./TeachersPage.module.css";
 
-const languages = ["French", "English", "German", "Ukrainian", "Polish"];
+const teachersTotal = 30;
 
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState([]);
   const { toggleFavorite, isFavorite } = useFavorites();
-  const [value, setValue] = useState({
+  const [filter, setFilter] = useState({
     lang: "",
     level: "",
     price: "",
   });
-
   const [page, setPage] = useState(0);
-  const teachersTotal = 30;
 
   useEffect(() => {
     const teachersQuery = query(
@@ -44,13 +42,26 @@ const TeachersPage = () => {
     return () => unsubscribe();
   }, [page]);
 
+  const filteredTeachers = teachers.filter((teacher) => {
+    const matchesLevel =
+      filter.level === "" || teacher.levels.includes(filter.level);
+    const matchesLang =
+      filter.lang === "" || teacher.languages.includes(filter.lang);
+    const matchesPrice =
+      filter.price === "" || teacher.price_per_hour === Number(filter.price);
+
+    return matchesLevel && matchesLang && matchesPrice;
+  });
+
   return (
     <div className={css.teachersPage}>
       <div className={css.teachersPageContainer}>
-        <CustomSelect options={languages} placeholder={"Languages"} />
+        <div className={css.filtersWrapper}>
+          <Filters filter={filter} setFilter={setFilter} />
+        </div>
         <ul className={css.teachersList}>
-          {teachers.length !== 0 &&
-            teachers.map((teacher) => (
+          {filteredTeachers.length !== 0 &&
+            filteredTeachers.map((teacher) => (
               <TeachersItem
                 key={teacher.id}
                 {...teacher}
@@ -59,11 +70,17 @@ const TeachersPage = () => {
               />
             ))}
         </ul>
-        {teachers.length < teachersTotal && (
-          <Button size={48} as="button" onClick={() => setPage(page + 1)}>
-            Load more
-          </Button>
-        )}
+
+        <Button
+          disabled={
+            teachers.length >= teachersTotal || filteredTeachers.length === 0
+          }
+          size={48}
+          as="button"
+          onClick={() => setPage(page + 1)}
+        >
+          Load more
+        </Button>
       </div>
     </div>
   );

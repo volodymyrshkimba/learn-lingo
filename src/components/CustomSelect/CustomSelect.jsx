@@ -1,62 +1,61 @@
 import { useState } from "react";
 
-import css from "./CustomSelect.module.css";
-
 import clsx from "clsx";
 
-const CustomSelect = ({ options, placeholder }) => {
+import css from "./CustomSelect.module.css";
+
+const CustomSelect = ({ options, placeholder, filter, setFilter, type }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState(false);
 
   return (
-    <button
-      className={css.select}
-      type="button"
-      onClick={() => {
-        setIsOpen(!isOpen);
-      }}
-    >
-      <span className={css.placeholder}>{value || placeholder}</span>
-      <div className={css.openArrow}>
-        {isOpen ? (
-          <svg width="20" height="20">
-            <use href="../../../public/icons.svg#arrow-down"></use>
+    <div className={clsx(css.selectWrapper, css[type])}>
+      <div className={css.placeholder}>{placeholder}</div>
+      <button
+        className={css.select}
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className={css.currentValue}>
+          {filter[type] || "----"}
+          {filter[type] && type === "price" && " $"}
+        </span>
+        <span className={css.openArrow}>
+          <svg width="12" height="8">
+            <use
+              href={`../../../public/icons.svg#arrow-${isOpen ? "down" : "up"}`}
+            ></use>
           </svg>
-        ) : (
-          <svg width="20" height="20">
-            <use href="../../../public/icons.svg#arrow-up"></use>
-          </svg>
-        )}
-      </div>
-      <div className={clsx(css.listWrapper, isOpen && css.visible)}>
-        <ul className={clsx(css.optionsList)}>
+        </span>
+      </button>
+
+      {isOpen && (
+        <ul className={css.optionsList}>
           <li
             className={css.option}
+            role="option"
             onClick={() => {
               setIsOpen(false);
-              setValue("");
+              setFilter({ ...filter, [type]: "" });
             }}
           >
             ----
           </li>
-          {options !== null &&
-            options.map((item) => {
-              return (
-                <li
-                  className={css.option}
-                  key={item}
-                  onClick={() => {
-                    setIsOpen(false);
-                    setValue(item);
-                  }}
-                >
-                  {item}
-                </li>
-              );
-            })}
+          {options?.map((item) => (
+            <li
+              className={css.option}
+              role="option"
+              key={item}
+              onClick={() => {
+                setIsOpen(false);
+                setFilter({ ...filter, [type]: item });
+              }}
+            >
+              {item}
+            </li>
+          ))}
         </ul>
-      </div>
-    </button>
+      )}
+    </div>
   );
 };
 
