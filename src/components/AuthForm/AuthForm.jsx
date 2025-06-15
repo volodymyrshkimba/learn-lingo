@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useAuth } from "../../context/AuthContext";
+
+import { LoginSchema, RegisterSchema } from "../../validation/auth";
 
 import css from "./AuthForm.module.css";
 
@@ -10,8 +13,10 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
   const {
     register,
     handleSubmit,
-    //  formState: { errors },
-  } = useForm();
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(login ? LoginSchema : RegisterSchema),
+  });
 
   const [passVisible, setPassVisible] = useState(false);
 
@@ -42,18 +47,28 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
       </p>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         {!login && (
+          <div className={css.inputWrapper}>
+            <input
+              className={css.input}
+              {...register("name")}
+              placeholder="Name"
+            />
+            {errors.name && (
+              <span className={css.error}>{errors.name.message}</span>
+            )}
+          </div>
+        )}
+        <div className={css.inputWrapper}>
           <input
             className={css.input}
-            {...register("name")}
-            placeholder="Name"
+            type="email"
+            {...register("email")}
+            placeholder="Email"
           />
-        )}
-        <input
-          className={css.input}
-          type="email"
-          {...register("email")}
-          placeholder="Email"
-        />
+          {errors.email && (
+            <span className={css.error}>{errors.email.message}</span>
+          )}
+        </div>
         <div className={css.pwdWrapper}>
           <input
             className={css.input}
@@ -61,6 +76,9 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
             {...register("password")}
             placeholder="Password"
           />
+          {errors.password && (
+            <span className={css.error}>{errors.password.message}</span>
+          )}
           <button
             className={css.showPwdBtn}
             onClick={() => setPassVisible(!passVisible)}
