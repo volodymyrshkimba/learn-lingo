@@ -24,7 +24,7 @@ const NavLinks = () => {
       <li
         onClick={() => {
           if (isLoggedIn) return;
-          toast("Please sign in to use to favorites list!", {
+          toast("Please sign in to use a favorites list!", {
             position: "top-right",
             autoClose: 5000,
             theme: "light",

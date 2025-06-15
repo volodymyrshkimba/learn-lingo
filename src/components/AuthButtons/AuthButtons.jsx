@@ -1,9 +1,15 @@
 import { useState } from "react";
+import clsx from "clsx";
+
 import AuthForm from "../AuthForm/AuthForm";
+
+import { useTheme } from "../../context/ThemeContext/ThemeContext";
 
 import css from "./AuthButtons.module.css";
 
 const AuthButtons = () => {
+  const { theme } = useTheme();
+
   const authFormDefaultValues = {
     isOpen: false,
     authForm: "",
@@ -35,7 +41,7 @@ const AuthButtons = () => {
     <ul className={css.authButtonsWrapper} onClick={handleAuthFormOpen}>
       <li className={css.btnWrapper}>
         <button className={css.loginBtn} type="button" data-type="login">
-          <svg width="20" height="20">
+          <svg className={clsx(css[theme], css.icon)} width="20" height="20">
             <use href="../../../public/icons.svg#log-in"></use>
           </svg>
           Log in

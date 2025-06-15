@@ -4,6 +4,7 @@ body {
   background-color: #ffffff;
   font-family: "Roboto", sans-serif;
   color: #121417;
+  transition: all 0.5s ease;
 }
 
 h1,

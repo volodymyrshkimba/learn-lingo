@@ -17,6 +17,30 @@
   gap: 8px;
 }
 
+.icon {
+  transition: stroke 0.5s ease;
+}
+
+.yellow.icon {
+  stroke: #f4c550;
+}
+
+.green.icon {
+  stroke: #9fbaae;
+}
+
+.blue.icon {
+  stroke: #9fb7ce;
+}
+
+.red.icon {
+  stroke: #e0a39a;
+}
+
+.orange.icon {
+  stroke: #f0aa8d;
+}
+
 .registrationBtn {
   font-weight: 700;
   color: #ffffff;

@@ -18,6 +18,27 @@
   align-items: center;
   border-radius: 10px;
   background-color: #f4c550;
+  transition: background-color 0.5s ease;
+}
+
+.yellow.userAvatar {
+  background-color: #f4c550;
+}
+
+.green.userAvatar {
+  background-color: #9fbaae;
+}
+
+.blue.userAvatar {
+  background-color: #9fb7ce;
+}
+
+.red.userAvatar {
+  background-color: #e0a39a;
+}
+
+.orange.userAvatar {
+  background-color: #f0aa8d;
 }
 
 .logoutBtn {
@@ -27,4 +48,28 @@
   padding-top: 14px;
   padding-bottom: 14px;
   gap: 8px;
+}
+
+.icon {
+  transition: stroke 0.5s ease;
+}
+
+.yellow.icon {
+  stroke: #f4c550;
+}
+
+.green.icon {
+  stroke: #9fbaae;
+}
+
+.blue.icon {
+  stroke: #9fb7ce;
+}
+
+.red.icon {
+  stroke: #e0a39a;
+}
+
+.orange.icon {
+  stroke: #f0aa8d;
 }

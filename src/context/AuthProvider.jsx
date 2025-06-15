@@ -13,6 +13,7 @@ import { auth } from "../firebase/firebase.js";
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
@@ -33,6 +34,7 @@ export const AuthProvider = ({ children }) => {
           email: "",
         });
       }
+      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -112,7 +114,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, userInfo, register, login, logout }}
+      value={{ isLoggedIn, userInfo, register, login, logout, loading }}
     >
       {children}
     </AuthContext.Provider>

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import clsx from "clsx";
+import { toast } from "react-toastify";
 
 import { useAuth } from "../../context/AuthContext";
+import { useTheme } from "../../context/ThemeContext/ThemeContext";
 
 import Button from "../Button/Button";
 import ReviewerItem from "../ReviewerItem/ReviewerItem";
 
 import css from "./TeachersItem.module.css";
-import { toast } from "react-toastify";
 
 const TeachersItem = ({
   avatar_url,
@@ -26,13 +27,14 @@ const TeachersItem = ({
   toggleFavorite,
   isFavorite,
 }) => {
+  const { theme } = useTheme();
   const [readMore, setReadMore] = useState(false);
   const { isLoggedIn } = useAuth();
 
   return (
     <li className={css.teacherCard}>
       <div className={css.avatarSide}>
-        <div className={css.imgWrapper}>
+        <div className={clsx(css.imgWrapper, css[theme])}>
           <img
             className={css.img}
             src={avatar_url}
@@ -74,7 +76,7 @@ const TeachersItem = ({
             <button
               onClick={() => {
                 if (!isLoggedIn) {
-                  return toast("Please sign in to add to favorites!", {
+                  return toast("Please sign in to use a favorites list!", {
                     position: "top-right",
                     autoClose: 5000,
                     theme: "light",
@@ -99,7 +101,11 @@ const TeachersItem = ({
               type="button"
             >
               <svg
-                className={clsx(css.heart, isFavorite(id) && css.active)}
+                className={clsx(
+                  css.heart,
+                  isFavorite(id) && css.active,
+                  css[theme]
+                )}
                 width="26"
                 height="26"
               >
@@ -143,7 +149,10 @@ const TeachersItem = ({
         )}
         <ul className={css.languageLevelsList}>
           {levels.map((level) => (
-            <li key={level} className={css.languageLevelsItem}>
+            <li
+              key={level}
+              className={clsx(css.languageLevelsItem, css[theme])}
+            >
               {level}
             </li>
           ))}

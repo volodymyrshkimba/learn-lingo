@@ -8,6 +8,8 @@ import { useFavorites } from "../../hooks/useFavorites";
 import TeachersItem from "../../components/TeachersItem/TeachersItem";
 import Button from "../../components/Button/Button";
 import Filters from "../../components/Filters/Filters";
+import MotionPageWrapper from "../../components/MotionPageWrapper/MotionPageWrapper";
+import Loader from "../../components/Loader/Loader";
 
 import css from "./TeachersPage.module.css";
 
@@ -15,6 +17,7 @@ const teachersTotal = 30;
 
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { toggleFavorite, isFavorite } = useFavorites();
   const [filter, setFilter] = useState({
     lang: "",
@@ -38,6 +41,7 @@ const TeachersPage = () => {
 
       setTeachers((prev) => [...prev, ...dataToArray]);
     });
+    setLoading(false);
 
     return () => unsubscribe();
   }, [page]);
@@ -54,35 +58,40 @@ const TeachersPage = () => {
   });
 
   return (
-    <div className={css.teachersPage}>
-      <div className={css.teachersPageContainer}>
-        <div className={css.filtersWrapper}>
-          <Filters filter={filter} setFilter={setFilter} />
+    <MotionPageWrapper>
+      <div className={css.teachersPage}>
+        <div className={css.teachersPageContainer}>
+          <div className={css.filtersWrapper}>
+            <Filters filter={filter} setFilter={setFilter} />
+          </div>
+          {loading ? (
+            <Loader />
+          ) : (
+            <ul className={css.teachersList}>
+              {filteredTeachers.length !== 0 &&
+                filteredTeachers.map((teacher) => (
+                  <TeachersItem
+                    key={teacher.id}
+                    {...teacher}
+                    toggleFavorite={toggleFavorite}
+                    isFavorite={isFavorite}
+                  />
+                ))}
+            </ul>
+          )}
+          <Button
+            disabled={
+              teachers.length >= teachersTotal || filteredTeachers.length === 0
+            }
+            size={48}
+            as="button"
+            onClick={() => setPage(page + 1)}
+          >
+            Load more
+          </Button>
         </div>
-        <ul className={css.teachersList}>
-          {filteredTeachers.length !== 0 &&
-            filteredTeachers.map((teacher) => (
-              <TeachersItem
-                key={teacher.id}
-                {...teacher}
-                toggleFavorite={toggleFavorite}
-                isFavorite={isFavorite}
-              />
-            ))}
-        </ul>
-
-        <Button
-          disabled={
-            teachers.length >= teachersTotal || filteredTeachers.length === 0
-          }
-          size={48}
-          as="button"
-          onClick={() => setPage(page + 1)}
-        >
-          Load more
-        </Button>
       </div>
-    </div>
+    </MotionPageWrapper>
   );
 };
 

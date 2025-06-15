@@ -1,3 +1,7 @@
+.logoWrapper {
+  position: relative;
+}
+
 .logoLink {
   display: flex;
   column-gap: 8px;
@@ -9,4 +13,67 @@
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: -0.02em;
+}
+
+.themesList {
+  position: absolute;
+  z-index: 10000;
+  top: calc(100% + 5px);
+  left: 0;
+}
+
+.themeOption {
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+}
+
+.themeOption:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.yellow {
+  background-color: #fbe9ba;
+}
+
+.green {
+  background-color: #cbded3;
+}
+
+.blue {
+  background-color: #bfd6ea;
+}
+
+.red {
+  background-color: #f2c0bd;
+}
+
+.orange {
+  background-color: #f4c8ba;
+}
+
+.tapIcon {
+  position: absolute;
+  top: 40%;
+  left: 3%;
+  animation: tap-pulse 1.4s infinite;
+  transform-origin: center;
+  fill: currentColor;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+@keyframes tap-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

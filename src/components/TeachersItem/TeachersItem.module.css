@@ -22,6 +22,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: border-color 0.5s ease;
+}
+
+.yellow.imgWrapper {
+  border-color: #fbe9ba;
+}
+
+.green.imgWrapper {
+  border-color: #cbded3;
+}
+
+.blue.imgWrapper {
+  border-color: #bfd6ea;
+}
+
+.red.imgWrapper {
+  border-color: #f2c0bd;
+}
+
+.orange.imgWrapper {
+  border-color: #f4c8ba;
 }
 
 .img {
@@ -101,11 +122,37 @@
 
 .heart {
   stroke: #121417;
+  transition: fill 0.2s ease, stroke 0.2s ease;
 }
 
 .active {
   stroke: #f4c550;
   fill: #f4c550;
+}
+
+.yellow.active {
+  stroke: #f4c550;
+  fill: #f4c550;
+}
+
+.green.active {
+  stroke: #9fbaae;
+  fill: #9fbaae;
+}
+
+.blue.active {
+  stroke: #9fb7ce;
+  fill: #9fb7ce;
+}
+
+.red.active {
+  stroke: #e0a39a;
+  fill: #e0a39a;
+}
+
+.orange.active {
+  stroke: #f0aa8d;
+  fill: #f0aa8d;
 }
 
 .mainDercriptionList {
@@ -155,6 +202,27 @@
 
 .languageLevelsItem:first-child {
   background-color: #f4c550;
+  transition: background-color 0.5s ease;
+}
+
+.yellow.languageLevelsItem:first-child {
+  background-color: #f4c550;
+}
+
+.green.languageLevelsItem:first-child {
+  background-color: #9fbaae;
+}
+
+.blue.languageLevelsItem:first-child {
+  background-color: #9fb7ce;
+}
+
+.red.languageLevelsItem:first-child {
+  background-color: #e0a39a;
+}
+
+.orange.languageLevelsItem:first-child {
+  background-color: #f0aa8d;
 }
 
 .languageLevelsItem:not(:first-child) {
