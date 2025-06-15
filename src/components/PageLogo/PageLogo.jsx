@@ -18,7 +18,7 @@ const PageLogo = () => {
 
   return (
     <div className={css.logoWrapper}>
-      <Link className={css.logoLink} to={"/"}>
+      <div className={css.logo}>
         <button
           type="button"
           onClick={() => {
@@ -29,13 +29,15 @@ const PageLogo = () => {
         >
           <img src="../../../public/ukraine.png" alt="Ukraine Flag" />
         </button>
-        {!alreadyOpened && (
-          <svg className={css.tapIcon} width="30" height="30">
-            <use href="../../../public/icons.svg#tap"></use>
-          </svg>
-        )}
-        <span className={css.logoText}>LearnLingo</span>
-      </Link>
+        <Link to={"/"}>
+          {!alreadyOpened && (
+            <svg className={css.tapIcon} width="30" height="30">
+              <use href="../../../public/icons.svg#tap"></use>
+            </svg>
+          )}
+          <span className={css.logoText}>LearnLingo</span>
+        </Link>
+      </div>
       <AnimatePresence>
         {openThemes && (
           <motion.ul
