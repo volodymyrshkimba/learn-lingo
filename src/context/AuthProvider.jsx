@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 import {
   createUserWithEmailAndPassword,
@@ -86,6 +87,8 @@ export const AuthProvider = ({ children }) => {
       setIsLoggedIn(true);
     } catch (error) {
       console.error("Login error:", error.message);
+      toast.error("Wrong email or password!");
+
       setIsLoggedIn(false);
       setUserInfo({
         name: "",

@@ -6,6 +6,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useTheme } from "../../context/ThemeContext/ThemeContext";
 
 import Button from "../Button/Button";
+import BookModal from "../BookModal/BookModal";
 import ReviewerItem from "../ReviewerItem/ReviewerItem";
 
 import css from "./TeachersItem.module.css";
@@ -29,7 +30,12 @@ const TeachersItem = ({
 }) => {
   const { theme } = useTheme();
   const [readMore, setReadMore] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const { isLoggedIn } = useAuth();
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <li className={css.teacherCard}>
@@ -158,11 +164,19 @@ const TeachersItem = ({
           ))}
         </ul>
         {readMore && (
-          <Button size={48} as="button">
+          <Button size={48} as="button" onClick={() => setModalOpen(true)}>
             Book trial lesson
           </Button>
         )}
       </div>
+      {modalOpen && (
+        <BookModal
+          avatar_url={avatar_url}
+          name={name}
+          surname={surname}
+          closeModal={closeModal}
+        />
+      )}
     </li>
   );
 };

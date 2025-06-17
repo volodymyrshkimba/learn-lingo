@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import clsx from "clsx";
 
 import { useAuth } from "../../context/AuthContext";
 
@@ -49,7 +50,7 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
         {!login && (
           <div className={css.inputWrapper}>
             <input
-              className={css.input}
+              className={clsx(css.input, errors.name && css.errorBorder)}
               {...register("name")}
               placeholder="Name"
             />
@@ -60,7 +61,7 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
         )}
         <div className={css.inputWrapper}>
           <input
-            className={css.input}
+            className={clsx(css.input, errors.email && css.errorBorder)}
             type="email"
             {...register("email")}
             placeholder="Email"
@@ -71,7 +72,7 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
         </div>
         <div className={css.pwdWrapper}>
           <input
-            className={css.input}
+            className={clsx(css.input, errors.password && css.errorBorder)}
             type={passVisible ? "text" : "password"}
             {...register("password")}
             placeholder="Password"
