@@ -6,18 +6,27 @@ const BookModal = ({ avatar_url, name, surname, closeModal }) => {
   return (
     <div className={css.overlay}>
       <div className={css.modal}>
-        <p>Book trial lesson</p>
-        <p>
+        <button
+          className={css.closeBtn}
+          onClick={() => closeModal()}
+          type="button"
+        >
+          <svg width="32" height="32">
+            <use href="../../../public/icons.svg#close"></use>
+          </svg>
+        </button>
+        <p className={css.title}>Book trial lesson</p>
+        <p className={css.descr}>
           Our experienced tutor will assess your current language level, discuss
           your learning goals, and tailor the lesson to your specific needs.
         </p>
-        <div>
-          <div>
+        <div className={css.teacherInfo}>
+          <div className={css.imageWrapper}>
             <img src={avatar_url} alt="avatar" />
           </div>
           <div>
-            <p>Your teacher</p>
-            <p>
+            <p className={css.teacherTag}>Your teacher</p>
+            <p className={css.teacherName}>
               {name} {surname}
             </p>
           </div>

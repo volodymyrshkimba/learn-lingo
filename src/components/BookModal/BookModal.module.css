@@ -6,11 +6,57 @@
 }
 
 .modal {
-  max-width: 500px;
+  max-width: 600px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 64px;
   background-color: #ffffff;
+  border-radius: 30px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.descr {
+  line-height: 1.37;
+  color: rgba(18, 20, 23, 0.8);
+  margin-bottom: 20px;
+}
+
+.teacherInfo {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.imageWrapper {
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+}
+
+.teacherTag {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8a8a89;
+}
+
+.teacherName {
+  font-weight: 500;
+  line-height: 1.5;
 }
