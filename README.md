@@ -6,17 +6,7 @@ A web application for a company that offers online language learning services wi
 
 ## 🔗 Live Demo
 
-➡️ [View App](https://learn-lingo-sooty.vercel.app/)
-
----
-
-## 📋 Table of Contents
-
-- [About the Project](#about-the-project)
-- [Features](#features)
-- [Technologies](#technologies)
-- [Installation](#installation)
-- [Technical Specification](#technical-specification)
+➡️ <a href="https://learn-lingo-sooty.vercel.app/" target="_blank" rel="noopener noreferrer">View App</a>
 
 ---
 
