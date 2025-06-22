@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+.flagButton {
+  width: 28px;
+  height: 28px;
+}
+
 .logoText {
   font-weight: 500;
   font-size: 20px;
@@ -75,5 +80,13 @@
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .logoText {
+    display: inline-block;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 }

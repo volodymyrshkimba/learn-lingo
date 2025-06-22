@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 28px;
+  padding-left: 20px;
 }
 
 .userInfo {
@@ -72,4 +73,10 @@
 
 .orange.icon {
   stroke: #f0aa8d;
+}
+
+@media screen and (max-width: 1024px) {
+  .userInfoWrapper {
+    display: none;
+  }
 }

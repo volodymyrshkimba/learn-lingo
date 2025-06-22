@@ -26,8 +26,9 @@ const PageLogo = () => {
             setAlreadyOpened(true);
             localStorage.setItem(ALREADY_OPENED_LS_KEY, "true");
           }}
+          className={css.flagButton}
         >
-          <img src="/ukraine.png" alt="Ukraine Flag" />
+          <img src="/ukraine.png" alt="Ukraine Flag" width={28} height={28} />
         </button>
         <Link to={"/"}>
           {!alreadyOpened && (

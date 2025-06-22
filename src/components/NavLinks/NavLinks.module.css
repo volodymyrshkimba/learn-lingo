@@ -1,6 +1,7 @@
 .navLinksList {
   display: flex;
   gap: 28px;
+  padding-left: 20px;
 }
 
 .link {
@@ -15,4 +16,10 @@
   pointer-events: none;
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+@media screen and (max-width: 1024px) {
+  .navLinksList {
+    display: none;
+  }
 }

@@ -1,6 +1,8 @@
 .homePageContainer {
-  max-width: 1312px;
+  max-width: 1440px;
   padding-bottom: 32px;
+  padding-left: 64px;
+  padding-right: 64px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -80,6 +82,7 @@
     url("../../../public/head.png") no-repeat center bottom 111px, #fbe9ba;
   border-radius: 30px;
   flex-grow: 1;
+  min-width: 385px;
   transition: background-color 0.5s ease;
 }
 
@@ -148,11 +151,16 @@
   gap: 16px;
 }
 
+.statsItem:not(:last-of-type) {
+  padding-right: 10px;
+}
+
 .statsValue {
   font-weight: 500;
   font-size: 28px;
   line-height: 1.14;
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .statsDesc {
@@ -161,4 +169,55 @@
   line-height: 1.29;
   letter-spacing: -0.02em;
   color: rgba(18, 20, 23, 0.7);
+}
+
+@media screen and (max-width: 1024px) {
+  .textImageWrapper {
+    flex-direction: column;
+  }
+
+  .textSide {
+    max-width: 100%;
+    padding: 58px 88px 58px 44px;
+  }
+
+  .imageSide {
+    height: 450px;
+  }
+
+  .statsItem {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .textSide {
+    padding: 38px 78px 38px 34px;
+  }
+
+  .statsList {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    padding: 20px 70px;
+  }
+
+  .imageSide {
+    min-width: 240px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .accent::after {
+    width: 130px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .homePageContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
