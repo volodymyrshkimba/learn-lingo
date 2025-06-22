@@ -27,12 +27,12 @@ const PageLogo = () => {
             localStorage.setItem(ALREADY_OPENED_LS_KEY, "true");
           }}
         >
-          <img src="../../../public/ukraine.png" alt="Ukraine Flag" />
+          <img src="/ukraine.png" alt="Ukraine Flag" />
         </button>
         <Link to={"/"}>
           {!alreadyOpened && (
             <svg className={css.tapIcon} width="30" height="30">
-              <use href="../../../public/icons.svg#tap"></use>
+              <use href="/icons.svg#tap"></use>
             </svg>
           )}
           <span className={css.logoText}>LearnLingo</span>

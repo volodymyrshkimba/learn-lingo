@@ -75,14 +75,14 @@ const TeachersItem = ({
             <ul className={css.teacherStats}>
               <li className={css.statItem}>
                 <svg width="16" height="16">
-                  <use href="../../../public/icons.svg#book"></use>
+                  <use href="/icons.svg#book"></use>
                 </svg>
                 Lessons online
               </li>
               <li>Lessons done: {lessons_done}</li>
               <li className={css.statItem}>
                 <svg width="16" height="16">
-                  <use href="../../../public/icons.svg#star"></use>
+                  <use href="/icons.svg#star"></use>
                 </svg>
                 Rating:&nbsp;{rating}
               </li>
@@ -127,7 +127,7 @@ const TeachersItem = ({
                 width="26"
                 height="26"
               >
-                <use href="../../../public/icons.svg#heart"></use>
+                <use href="/icons.svg#heart"></use>
               </svg>
             </button>
           </div>

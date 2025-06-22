@@ -16,7 +16,7 @@ const ReviewerItem = ({ comment, reviewer_name, reviewer_rating, avatar }) => {
           ) : (
             <span className={css.noAvatar}>
               <svg width="16" height="16">
-                <use href="../../../public/icons.svg#user"></use>
+                <use href="/icons.svg#user"></use>
               </svg>
             </span>
           )}
@@ -25,7 +25,7 @@ const ReviewerItem = ({ comment, reviewer_name, reviewer_rating, avatar }) => {
           <p className={css.reviewerName}>{reviewer_name}</p>
           <div className={css.reviewerRating}>
             <svg width="16" height="16">
-              <use href="../../../public/icons.svg#star"></use>
+              <use href="/icons.svg#star"></use>
             </svg>
             {reviewer_rating.toString().padEnd(3, ".0")}
           </div>

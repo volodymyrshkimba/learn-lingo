@@ -42,7 +42,7 @@ const AuthButtons = () => {
       <li className={css.btnWrapper}>
         <button className={css.loginBtn} type="button" data-type="login">
           <svg className={clsx(css[theme], css.icon)} width="20" height="20">
-            <use href="../../../public/icons.svg#log-in"></use>
+            <use href="/icons.svg#log-in"></use>
           </svg>
           Log in
         </button>

@@ -15,7 +15,7 @@ const UserInfo = () => {
       <div className={css.userInfo}>
         <span className={clsx(css.userAvatar, css[theme])}>
           <svg width="16" height="16">
-            <use href="../../../public/icons.svg#user"></use>
+            <use href="/icons.svg#user"></use>
           </svg>
         </span>
         <p>{userInfo.name}</p>
@@ -27,7 +27,7 @@ const UserInfo = () => {
         data-type="login"
       >
         <svg className={clsx(css[theme], css.icon)} width="20" height="20">
-          <use href="../../../public/icons.svg#log-in"></use>
+          <use href="/icons.svg#log-in"></use>
         </svg>
         Log out
       </button>

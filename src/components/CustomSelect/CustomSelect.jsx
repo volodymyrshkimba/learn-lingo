@@ -21,9 +21,7 @@ const CustomSelect = ({ options, placeholder, filter, setFilter, type }) => {
         </span>
         <span className={css.openArrow}>
           <svg width="12" height="8">
-            <use
-              href={`../../../public/icons.svg#arrow-${isOpen ? "down" : "up"}`}
-            ></use>
+            <use href={`/icons.svg#arrow-${isOpen ? "down" : "up"}`}></use>
           </svg>
         </span>
       </button>

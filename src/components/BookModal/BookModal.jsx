@@ -17,7 +17,7 @@ const BookModal = ({ avatar_url, name, surname, closeModal }) => {
           type="button"
         >
           <svg width="32" height="32">
-            <use href="../../../public/icons.svg#close"></use>
+            <use href="/icons.svg#close"></use>
           </svg>
         </button>
         <p className={css.title}>Book trial lesson</p>

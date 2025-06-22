@@ -37,7 +37,7 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
         type="button"
       >
         <svg width="32" height="32">
-          <use href="../../../public/icons.svg#close"></use>
+          <use href="/icons.svg#close"></use>
         </svg>
       </button>
       <h2 className={css.authTitle}>{login ? "Log In" : "Registration"}</h2>
@@ -86,11 +86,7 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
             type="button"
           >
             <svg width="20" height="20">
-              <use
-                href={`../../../public/icons.svg#${
-                  passVisible ? "eye" : "eye-off"
-                }`}
-              ></use>
+              <use href={`/icons.svg#${passVisible ? "eye" : "eye-off"}`}></use>
             </svg>
           </button>
         </div>
