@@ -1,12 +1,77 @@
-# React + Vite
+![](https://github.com/volodymyrshkimba/learn-lingo/blob/main/public/favicon.png?raw=true)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Learn Lingo
 
-Currently, two official plugins are available:
+A web application for a company that offers online language learning services with professional tutors. Users can browse the list of available teachers, filter them by language, student level, and price, save favorites, and book trial lessons.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Demo
 
-## Expanding the ESLint configuration
+➡️ [View App](https://learn-lingo-sooty.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📋 Table of Contents
+
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Technical Specification](#technical-specification)
+
+---
+
+## 📌 About the Project
+
+This application is designed for a company that connects users with online language tutors. It provides an intuitive interface for discovering, filtering, and booking trial lessons with tutors.
+
+---
+
+## ⚙️ Features
+
+- **Home Page**:
+  - Brief overview of the platform and its advantages.
+  - Call-to-action button linking to the teachers page.
+
+- **Teachers Page**:
+  - List of tutors with:
+    - Filtering by language, student level, and price per hour.
+    - Displaying 4 tutors initially; more can be loaded on demand.
+    - Expandable cards with detailed tutor info and reviews.
+    - Button to book a trial lesson via a modal form.
+
+- **Favorites Page** (private):
+  - Available only to authenticated users.
+  - Displays a list of saved (favorite) tutors.
+
+- **Authentication**:
+  - Register, login, logout via **Firebase Auth**.
+  - Form validation using **react-hook-form** and **Yup**.
+  - Auth windows close on ✖️ click.
+
+- **Favorites Handling**:
+  - Saved to **LocalStorage**.
+  - Persistent after page reload.
+  - Toggle heart button to add/remove favorites.
+  - Tooltip prompts non-authenticated users to log in.
+
+---
+
+## 🛠️ Technologies
+
+- **React**
+- **React Router**
+- **React Hook Form** + **Yup**
+- **Firebase Authentication**
+- **Firebase Realtime Database**
+- **Vite** — as bundler
+- **CSS Modules** or custom styling
+
+---
+
+## 🚀 Installation
+
+```bash
+git clone https://github.com/volodymyrshkimba/learn-lingo.git
+cd learn-lingo
+npm install
+npm run dev
