@@ -3,8 +3,13 @@ import BookForm from "../BookForm/BookForm";
 import css from "./BookModal.module.css";
 
 const BookModal = ({ avatar_url, name, surname, closeModal }) => {
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
   return (
-    <div className={css.overlay}>
+    <div className={css.overlay} onClick={handleBackdropClick}>
       <div className={css.modal}>
         <button
           className={css.closeBtn}
