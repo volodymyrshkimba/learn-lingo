@@ -9,7 +9,7 @@ import { LoginSchema, RegisterSchema } from "../../validation/auth";
 
 import css from "./AuthForm.module.css";
 
-const AuthForm = ({ login, handleAuthFormClose }) => {
+const AuthForm = ({ login, handleAuthFormClose, mobmenu }) => {
   const auth = useAuth();
   const {
     register,
@@ -30,7 +30,7 @@ const AuthForm = ({ login, handleAuthFormClose }) => {
   };
 
   return (
-    <div className={css.authCard}>
+    <div className={clsx(css.authCard, mobmenu && css.mobMenu)}>
       <button
         className={css.closeBtn}
         onClick={() => handleAuthFormClose()}

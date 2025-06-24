@@ -18,3 +18,10 @@
   padding-top: 80px;
   font-size: 18px;
 }
+
+@media screen and (max-width: 769px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}

@@ -84,3 +84,15 @@
 .errorBorder {
   border-color: rgb(182, 47, 47);
 }
+
+@media screen and (max-width: 1023px) {
+  .authCard.mobMenu {
+    overflow: auto;
+    height: 100vh;
+    width: 366px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

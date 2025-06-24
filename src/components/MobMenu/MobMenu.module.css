@@ -1,0 +1,64 @@
+@media screen and (max-width: 1023px) {
+  .mobMenuBtn {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-decoration: underline;
+  }
+
+  .menuOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fbe9ba;
+    z-index: 2;
+  }
+
+  .yellow.menuOverlay {
+    background-color: #fbe9ba;
+  }
+
+  .green.menuOverlay {
+    background-color: #cbded3;
+  }
+
+  .blue.menuOverlay {
+    background-color: #bfd6ea;
+  }
+
+  .red.menuOverlay {
+    background-color: #f2c0bd;
+  }
+
+  .orange.menuOverlay {
+    background-color: #f4c8ba;
+  }
+
+  .menu {
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 64px;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mobMenuBtn {
+    display: none;
+  }
+
+  .menuOverlay {
+    display: none;
+  }
+}

@@ -1,10 +1,11 @@
 import Navigation from "../Navigation/Navigation";
 import AuthButtons from "../AuthButtons/AuthButtons";
+import UserInfo from "../UserInfo/UserInfo";
+import MobMenu from "../MobMenu/MobMenu";
 
 import css from "./Header.module.css";
 
 import { useAuth } from "../../context/AuthContext";
-import UserInfo from "../UserInfo/UserInfo";
 
 const Header = () => {
   const { isLoggedIn } = useAuth();
@@ -14,6 +15,7 @@ const Header = () => {
       <div className={css.contentWrapper}>
         <Navigation />
         {isLoggedIn ? <UserInfo /> : <AuthButtons />}
+        <MobMenu />
       </div>
     </header>
   );

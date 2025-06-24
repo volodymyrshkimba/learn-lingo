@@ -25,3 +25,22 @@
   column-gap: 20px;
   margin-bottom: 32px;
 }
+
+@media screen and (max-width: 769px) {
+  .teachersPageContainer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .teacherHeader {
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  .filtersWrapper {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}

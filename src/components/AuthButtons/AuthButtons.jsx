@@ -7,7 +7,7 @@ import { useTheme } from "../../context/ThemeContext/ThemeContext";
 
 import css from "./AuthButtons.module.css";
 
-const AuthButtons = () => {
+const AuthButtons = ({ mobmenu }) => {
   const { theme } = useTheme();
 
   const authFormDefaultValues = {
@@ -38,7 +38,10 @@ const AuthButtons = () => {
   };
 
   return (
-    <ul className={css.authButtonsWrapper} onClick={handleAuthFormOpen}>
+    <ul
+      className={clsx(css.authButtonsWrapper, mobmenu && css.mobMenu)}
+      onClick={handleAuthFormOpen}
+    >
       <li className={css.btnWrapper}>
         <button className={css.loginBtn} type="button" data-type="login">
           <svg className={clsx(css[theme], css.icon)} width="20" height="20">
@@ -47,7 +50,7 @@ const AuthButtons = () => {
           Log in
         </button>
         {authFormControl.isOpen && authFormControl.authForm === "login" && (
-          <AuthForm login handleAuthFormClose={handleAuthFormClose} />
+          <AuthForm mobmenu login handleAuthFormClose={handleAuthFormClose} />
         )}
       </li>
       <li className={css.btnWrapper}>
@@ -59,7 +62,7 @@ const AuthButtons = () => {
           Registration
         </button>
         {authFormControl.isOpen && authFormControl.authForm === "register" && (
-          <AuthForm handleAuthFormClose={handleAuthFormClose} />
+          <AuthForm mobmenu handleAuthFormClose={handleAuthFormClose} />
         )}
       </li>
     </ul>

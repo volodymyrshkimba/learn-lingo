@@ -5,13 +5,13 @@ import { useTheme } from "../../context/ThemeContext/ThemeContext";
 
 import css from "./UserInfo.module.css";
 
-const UserInfo = () => {
+const UserInfo = ({ mobmenu }) => {
   const { theme } = useTheme();
 
   const { userInfo, logout } = useAuth();
 
   return (
-    <div className={css.userInfoWrapper}>
+    <div className={clsx(css.userInfoWrapper, mobmenu && css.mobMenu)}>
       <div className={css.userInfo}>
         <span className={clsx(css.userAvatar, css[theme])}>
           <svg width="16" height="16">

@@ -52,8 +52,13 @@
   border-radius: 12px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .authButtonsWrapper {
     display: none;
+  }
+
+  .authButtonsWrapper.mobMenu {
+    display: flex;
+    padding-left: 0;
   }
 }

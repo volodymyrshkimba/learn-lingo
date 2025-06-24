@@ -10,11 +10,8 @@
   margin-bottom: 32px;
 }
 
-.avatarSide {
-  position: relative;
-}
-
 .imgWrapper {
+  position: relative;
   width: 120px;
   height: 120px;
   border: 3px solid #fbe9ba;
@@ -57,8 +54,8 @@
   border: 2px solid #ffffff;
   background-color: #38cd3e;
   position: absolute;
-  top: 19px;
-  right: 23px;
+  top: 16px;
+  right: 20px;
 }
 
 .teacherHeader {
@@ -92,7 +89,7 @@
 
 .teacherStats {
   display: flex;
-  gap: 32px;
+  column-gap: 32px;
 }
 
 .statItem {
@@ -231,4 +228,37 @@
 
 .languageLevelsList + button {
   margin-top: 32px;
+}
+
+@media screen and (max-width: 1200px) {
+  .teacherStats {
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+
+  .languageLevelsList {
+    flex-wrap: wrap;
+  }
+
+  .teacherStats li:not(:last-child)::after {
+    display: none;
+  }
+
+  .nameBlock {
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .teacherCard {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .teacherHeader {
+    flex-direction: column;
+    row-gap: 32px;
+  }
 }

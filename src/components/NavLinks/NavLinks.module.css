@@ -18,8 +18,22 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .navLinksList {
     display: none;
+  }
+
+  .navLinksList.mobMenu {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+    margin-bottom: 30px;
+  }
+
+  .mobMenu .link {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
   }
 }

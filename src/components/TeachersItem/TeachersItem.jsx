@@ -51,7 +51,7 @@ const TeachersItem = ({
 
   return (
     <li className={css.teacherCard}>
-      <div className={css.avatarSide}>
+      <div>
         <div className={clsx(css.imgWrapper, css[theme])}>
           <img
             className={css.img}
@@ -60,8 +60,8 @@ const TeachersItem = ({
             width={96}
             height={96}
           />
+          <span className={css.liveMark}></span>
         </div>
-        <span className={css.liveMark}></span>
       </div>
       <div className={css.teacherInfo}>
         <div className={css.teacherHeader}>
