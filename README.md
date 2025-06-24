@@ -12,7 +12,8 @@ A web application for a company that offers online language learning services wi
 
 ## 📌 About the Project
 
-This application is designed for a company that connects users with online language tutors. It provides an intuitive interface for discovering, filtering, and booking trial lessons with tutors.
+This application is designed for a company that connects users with online language tutors. It provides an intuitive interface for discovering, filtering, and booking trial lessons with tutors.  
+🖥️ The app is fully responsive and adapts to different screen sizes with well-designed breakpoints for mobile, tablet, and desktop views.
 
 ---
 
