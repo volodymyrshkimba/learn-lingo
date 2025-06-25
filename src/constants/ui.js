@@ -27,3 +27,4 @@ export const STATS = [
     value: 200,
   },
 ];
+export const PAGE_SIZE = 4;

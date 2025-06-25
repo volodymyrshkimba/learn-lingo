@@ -26,6 +26,12 @@
   margin-bottom: 32px;
 }
 
+.emptyMessage {
+  text-align: center;
+  padding-top: 80px;
+  font-size: 18px;
+}
+
 @media screen and (max-width: 769px) {
   .teachersPageContainer {
     padding-left: 40px;

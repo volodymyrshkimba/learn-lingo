@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { endAt, onValue, orderByKey, query, startAt } from "firebase/database";
+import { onValue } from "firebase/database";
 
 import { teachersRef } from "../../firebase/firebase";
 import { objToArrAndClearEmptyArrValues } from "../../utils/objToArrAndClearEmptyArrValues";
@@ -11,9 +11,9 @@ import Filters from "../../components/Filters/Filters";
 import MotionPageWrapper from "../../components/MotionPageWrapper/MotionPageWrapper";
 import Loader from "../../components/Loader/Loader";
 
-import css from "./TeachersPage.module.css";
+import { PAGE_SIZE } from "../../constants/ui";
 
-const teachersTotal = 30;
+import css from "./TeachersPage.module.css";
 
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState([]);
@@ -24,27 +24,22 @@ const TeachersPage = () => {
     level: "",
     price: "",
   });
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    const teachersQuery = query(
-      teachersRef,
-      orderByKey(),
-      startAt((0 + page * 4).toString()),
-      endAt((3 + page * 4).toString())
-    );
-
-    const unsubscribe = onValue(teachersQuery, (snapshot) => {
+    const unsubscribe = onValue(teachersRef, (snapshot) => {
       const data = snapshot.val();
-
       const dataToArray = objToArrAndClearEmptyArrValues(data);
-
-      setTeachers((prev) => [...prev, ...dataToArray]);
+      setTeachers(dataToArray);
+      setLoading(false);
     });
-    setLoading(false);
 
     return () => unsubscribe();
-  }, [page]);
+  }, []);
+
+  useEffect(() => {
+    setPage(1);
+  }, [filter]);
 
   const filteredTeachers = teachers.filter((teacher) => {
     const matchesLevel =
@@ -57,6 +52,10 @@ const TeachersPage = () => {
     return matchesLevel && matchesLang && matchesPrice;
   });
 
+  const totalPages = Math.ceil(filteredTeachers.length / PAGE_SIZE);
+
+  const pagedTeachers = filteredTeachers.slice(0, page * PAGE_SIZE);
+
   return (
     <MotionPageWrapper>
       <div className={css.teachersPage}>
@@ -68,8 +67,8 @@ const TeachersPage = () => {
             <Loader />
           ) : (
             <ul className={css.teachersList}>
-              {filteredTeachers.length !== 0 &&
-                filteredTeachers.map((teacher) => (
+              {pagedTeachers.length !== 0 &&
+                pagedTeachers.map((teacher) => (
                   <TeachersItem
                     key={teacher.id}
                     {...teacher}
@@ -79,16 +78,13 @@ const TeachersPage = () => {
                 ))}
             </ul>
           )}
-          <Button
-            disabled={
-              teachers.length >= teachersTotal || filteredTeachers.length === 0
-            }
-            size={48}
-            as="button"
-            onClick={() => setPage(page + 1)}
-          >
-            Load more
-          </Button>
+          {pagedTeachers.length > 0 && totalPages !== page ? (
+            <Button size={48} as="button" onClick={() => setPage(page + 1)}>
+              Load more
+            </Button>
+          ) : (
+            <div className={css.emptyMessage}>No teachers found</div>
+          )}
         </div>
       </div>
     </MotionPageWrapper>
