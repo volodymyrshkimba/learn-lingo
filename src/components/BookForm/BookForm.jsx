@@ -14,9 +14,8 @@ const values = [
 const BookForm = () => {
   const { register, handleSubmit, watch, reset } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     reset();
-    console.log(data);
   };
 
   const isAgreed = watch("reason");
