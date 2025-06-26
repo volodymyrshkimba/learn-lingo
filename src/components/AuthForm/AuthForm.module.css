@@ -88,7 +88,7 @@
 @media screen and (max-width: 1023px) {
   .authCard.mobMenu {
     overflow: auto;
-    height: 85vh;
+    height: 68vh;
     width: 366px;
     position: fixed;
     top: 0;
