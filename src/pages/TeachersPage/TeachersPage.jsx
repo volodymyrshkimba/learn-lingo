@@ -78,11 +78,12 @@ const TeachersPage = () => {
                 ))}
             </ul>
           )}
-          {pagedTeachers.length > 0 && totalPages !== page ? (
+          {pagedTeachers.length > 0 && totalPages !== page && (
             <Button size={48} as="button" onClick={() => setPage(page + 1)}>
               Load more
             </Button>
-          ) : (
+          )}
+          {pagedTeachers.length === 0 && (
             <div className={css.emptyMessage}>No teachers found</div>
           )}
         </div>
